@@ -1,7 +1,7 @@
 {
   "name": "Project0",
   "description": "Damle and Valentine Development Inc.",
-  "main": "Main.xaml",
+  "main": "MainDriver\\Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.9.5]",
     "UiPath.Mail.Activities": "[1.9.5]",
@@ -42,8 +42,8 @@
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
-      "filePath": "Main.xaml",
-      "uniqueId": "031c85ac-c739-4de4-b499-b67a35581e30",
+      "filePath": "MainDriver\\Main.xaml",
+      "uniqueId": "741cd93c-9317-42d7-9966-118620ca5d89",
       "input": [],
       "output": []
     }
