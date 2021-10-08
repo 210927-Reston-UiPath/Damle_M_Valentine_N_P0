@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="PlaceOrders" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="482,1494" sap2010:WorkflowViewState.IdRef="PlaceOrders_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="PlaceOrders" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="608,2350" sap2010:WorkflowViewState.IdRef="PlaceOrders_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="28">
+    <scg:List x:TypeArguments="x:String" Capacity="31">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -29,6 +29,9 @@
       <x:String>UiPath.Excel.Activities</x:String>
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -55,104 +58,95 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PlaceOrders" sap:VirtualizedContainerService.HintSize="560,1935" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PlaceOrders" sap:VirtualizedContainerService.HintSize="618,2285" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="orderClientRef" />
       <Variable x:TypeArguments="sd:DataTable" Name="orderListSubmitted" />
       <Variable x:TypeArguments="x:String" Name="logMsg" />
+      <Variable x:TypeArguments="sd:DataTable" Name="productList" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetOrderClientRef workflow" sap:VirtualizedContainerService.HintSize="518,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="TempMohit\DataAccess\GetOrderClientRef.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="orderClientRef">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="orderClientRef" />
-        </OutArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:OutputDataTable DataTable="[orderClientRef]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="518,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[logMsg]" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="518,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;log: &quot;+logMsg]" />
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetOrderListSubmitted workflow" sap:VirtualizedContainerService.HintSize="518,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="TempMohit\DataAccess\GetOrderListSubmitted.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetOrderListSubmitted workflow" sap:VirtualizedContainerService.HintSize="576,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="TempMohit\DataAccess\GetOrderListSubmitted.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="orderList">
           <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="orderListSubmitted" />
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:OutputDataTable DataTable="[orderListSubmitted]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="518,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[logMsg]" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="518,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;log: &quot;+logMsg]" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="518,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="log: Initiating for loop thru every order" />
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[orderClientRef]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="518,1112" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:OutputDataTable DataTable="[orderListSubmitted]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="576,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[logMsg]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="576,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;log: Got Shopping lists that have been submitted (sheet: OrderList in ShoppingList.xlsx)&quot;+Environment.NewLine+logMsg]" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetProductList workflow" sap:VirtualizedContainerService.HintSize="576,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="TempMohit\DataAccess\GetProductList.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="productList">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="productList" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:OutputDataTable DataTable="[productList]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="576,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_5" Text="[logMsg]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="576,61" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[&quot;log: Got list of products (with vendor info) (sheet: ProductList, in VendorsAndProducts.xlsx)&quot;+Environment.NewLine+logMsg]" />
+    <ui:AddDataColumn x:TypeArguments="x:String" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" AllowDBNull="True" AutoIncrement="False" ColumnName="Vendor" DataTable="[orderListSubmitted]" DisplayName="Add Data Column _ Vendor to orderListSubmitted" sap:VirtualizedContainerService.HintSize="576,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" Unique="False" />
+    <ui:OutputDataTable DataTable="[orderListSubmitted]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="576,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_6" Text="[logMsg]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="576,61" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[&quot;log: Added Vendor column to order list&quot;+Environment.NewLine+logMsg]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="576,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="log: adding approprate Vender values from VendorList sheet, into  order list" />
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[orderListSubmitted]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="576,818" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,964" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,670" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <Sequence.Variables>
-              <Variable x:TypeArguments="sd:DataTable" Name="orderSubmitted" />
-              <Variable x:TypeArguments="x:Double" Name="orderId" />
+              <Variable x:TypeArguments="x:String" Name="product" />
+              <Variable x:TypeArguments="x:String" Name="vendor" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="OrderId" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="426,64" sap2010:WorkflowViewState.IdRef="GetRowItem_1" Row="[row]">
+            <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Product" DisplayName="Get Row Item _ get Product" sap:VirtualizedContainerService.HintSize="484,64" sap2010:WorkflowViewState.IdRef="GetRowItem_3" Row="[row]">
               <ui:GetRowItem.Value>
-                <OutArgument x:TypeArguments="x:Double">[orderId]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[product]</OutArgument>
               </ui:GetRowItem.Value>
             </ui:GetRowItem>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="426,61" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[&quot;log: order id: &quot;+orderId.ToString]" />
-            <ui:FilterDataTable DataTable="[orderListSubmitted]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="426,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[orderSubmitted]" SelectColumnsMode="Keep">
-              <ui:FilterDataTable.Filters>
-                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-                  <ui:FilterOperationArgument BooleanOperator="And" Operator="NOTEQ">
-                    <ui:FilterOperationArgument.Column>
-                      <InArgument x:TypeArguments="x:String">["OrderId"]</InArgument>
-                    </ui:FilterOperationArgument.Column>
-                    <ui:FilterOperationArgument.Operand>
-                      <InArgument x:TypeArguments="x:Double">[orderId]</InArgument>
-                    </ui:FilterOperationArgument.Operand>
-                  </ui:FilterOperationArgument>
-                </scg:List>
-              </ui:FilterDataTable.Filters>
-              <ui:FilterDataTable.SelectColumns>
-                <scg:List x:TypeArguments="InArgument" Capacity="4">
-                  <x:Null />
-                </scg:List>
-              </ui:FilterDataTable.SelectColumns>
-            </ui:FilterDataTable>
-            <ui:OutputDataTable DataTable="[orderSubmitted]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="426,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_4" Text="[logMsg]" />
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="426,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;log: &quot;+logMsg]" />
-            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[orderSubmitted]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="426,405" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
-              <ui:ForEachRow.Body>
-                <ActivityAction x:TypeArguments="sd:DataRow">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,257" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Product" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="GetRowItem_2" Row="[row]">
-                      <ui:GetRowItem.Value>
-                        <OutArgument x:TypeArguments="x:String">[logMsg]</OutArgument>
-                      </ui:GetRowItem.Value>
-                    </ui:GetRowItem>
-                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[&quot;log: &quot;+logMsg]" />
-                  </Sequence>
-                </ActivityAction>
-              </ui:ForEachRow.Body>
-            </ui:ForEachRow>
+            <ui:LookupDataTable LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" RowIndex="{x:Null}" TargetColumnIndex="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[productList]" DisplayName="Lookup Data Table _ Vendor in ProductList" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="LookupDataTable_2" LookupColumnName="Product" LookupValue="[product]" TargetColumnName="Vendor">
+              <ui:LookupDataTable.CellValue>
+                <OutArgument x:TypeArguments="x:String">[vendor]</OutArgument>
+              </ui:LookupDataTable.CellValue>
+            </ui:LookupDataTable>
+            <If Condition="[vendor is Nothing]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[vendor]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">none</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+            </If>
+            <ui:InvokeCode ContinueOnError="{x:Null}" Code="row(3) = vendor" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="484,164" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+              <ui:InvokeCode.Arguments>
+                <InArgument x:TypeArguments="sd:DataRow" x:Key="row">
+                  <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="row" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="vendor">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="vendor" />
+                </InArgument>
+              </ui:InvokeCode.Arguments>
+            </ui:InvokeCode>
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
+    <ui:OutputDataTable DataTable="[orderListSubmitted]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="576,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_8" Text="[logMsg]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="576,61" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="[&quot;log: &quot;+logMsg]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="576,61" sap2010:WorkflowViewState.IdRef="WriteLine_13" Text="log: appending processed orderListSubmitted to OrderListPlaced in VendorsAndProducts.xlsx" />
+    <ui:AppendRange DataTable="[orderListSubmitted]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="576,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="OrderListPlaced" WorkbookPath="TempMohit\Data\VendorsAndProducts.xlsx" />
   </Sequence>
 </Activity>
