@@ -1,0 +1,180 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PlaceOrder" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="597,2679" sap2010:WorkflowViewState.IdRef="ShoppingList_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg1:List x:TypeArguments="x:String" Capacity="30">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+    </scg1:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg1:List x:TypeArguments="AssemblyReference" Capacity="28">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg1:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="PlaceOrder" sap:VirtualizedContainerService.HintSize="607,2614" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:GenericValue" Name="FinalPrice" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="FullPrice" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="Discount" />
+      <Variable x:TypeArguments="scg:ISet(x:String)" Name="vendors" />
+      <Variable x:TypeArguments="sd:DataTable" Name="products" />
+      <Variable x:TypeArguments="x:String" Default="[Environment.NewLine]" Name="n" />
+      <Variable x:TypeArguments="x:String" Name="logMsg" />
+      <Variable x:TypeArguments="x:String" Name="vendorsStr" />
+      <Variable x:TypeArguments="x:String" Name="shoppingList" />
+      <Variable x:TypeArguments="x:Int32" Name="clientId" />
+      <Variable x:TypeArguments="sd:DataTable" Name="shoppingListDt" />
+      <Variable x:TypeArguments="sd:DataTable" Name="orderPlaced" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg1:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ClientLogin TEMPORARY" sap:VirtualizedContainerService.HintSize="565,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="TempMohit\Features\ClientLogin.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:Int32" x:Key="clientId">
+          <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="clientId" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ClientSelectVendorMenu workflow" sap:VirtualizedContainerService.HintSize="565,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="TempMohit\Uis\ClientSelectVendorMenu.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="scg:ISet(x:String)" x:Key="menuReturn">[vendors]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="565,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="log: vendors selected:" />
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="565,287" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[vendors]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="272,153" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg1:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[item.ToString]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[products]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="565,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="ProductList" WorkbookPath="TempMohit\Data\VendorsAndProducts.xlsx" />
+    <ui:OutputDataTable DataTable="[products]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="565,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[logMsg]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="565,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;log: Full Product List&quot;+n+logMsg]" />
+    <If Condition="[Not vendors.Contains(&quot;Any Vendor&quot;)]" sap:VirtualizedContainerService.HintSize="565,654" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="420,506" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg1:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg1:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ConvertSetStringToString workflow" sap:VirtualizedContainerService.HintSize="378,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="TempMohit\Utilities\ConvertSetStringToString.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="scg:ISet(x:String)" x:Key="setOfString">[vendors]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="returnString">[vendorsStr]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="378,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;log: String of selected Vendors:&quot;+n+logMsg]" />
+          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="378,61" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="log: Filtering Product List" />
+          <Assign sap:VirtualizedContainerService.HintSize="378,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="sd:DataTable">[products]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="sd:DataTable">[products.Select("[Vendor] IN "+vendorsStr).CopyToDataTable]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:OutputDataTable DataTable="[products]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="565,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[logMsg]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="565,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;log: Product List&quot;+n+logMsg]" />
+    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="565,238" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="[&quot;Enter the items in your shopping list.&quot;+n+&quot;For each item, enter the item name, followed by a space, followed by the quantity.&quot;+n+&quot;Separate each item by a comma.&quot;+n+&quot;eg: item1 qty1, item2 qty2, item3 qty3&quot;]" Title="Shopping List">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="x:String">[shoppingList]</OutArgument>
+      </ui:InputDialog.Result>
+    </ui:InputDialog>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="565,61" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[&quot;log: Shopping List: &quot;+shoppingList]" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ProcessShoppingListIntoDataTable workflow" sap:VirtualizedContainerService.HintSize="565,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="TempMohit\Utilities\ProcessShoppingListIntoDataTable.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="shoppingList">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="shoppingList" />
+        </InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="shoppingListDt">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="shoppingListDt" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke PlaceOrder workflow" sap:VirtualizedContainerService.HintSize="565,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="TempMohit\Features\PlaceOrder.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Int32" x:Key="clientId">
+          <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="clientId" />
+        </InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="shoppingList">
+          <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="shoppingListDt" />
+        </InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="orderPlaced">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="orderPlaced" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+  </Sequence>
+</Activity>
