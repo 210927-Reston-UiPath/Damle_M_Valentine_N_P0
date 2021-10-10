@@ -102,7 +102,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:ReadCell Cell="[&quot;A&quot;+currentCellIndex.ToString]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="761,87" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="OrderClientRef" WorkbookPath="TempMohit\Data\VendorsAndProducts.xlsx">
+    <ui:ReadCell Cell="[&quot;A&quot;+currentCellIndex.ToString]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="761,87" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="OrderReference" WorkbookPath="TempMohit\Data\VendorsAndProducts.xlsx">
       <ui:ReadCell.Result>
         <OutArgument x:TypeArguments="ui:GenericValue">[currentCell]</OutArgument>
       </ui:ReadCell.Result>
@@ -125,12 +125,12 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ReadCell Cell="[&quot;A&quot;+nextCellIndex.ToString]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="412,87" sap2010:WorkflowViewState.IdRef="ReadCell_2" SheetName="OrderClientRef" WorkbookPath="TempMohit\Data\VendorsAndProducts.xlsx">
+          <ui:ReadCell Cell="[&quot;A&quot;+nextCellIndex.ToString]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="412,87" sap2010:WorkflowViewState.IdRef="ReadCell_2" SheetName="OrderReference" WorkbookPath="TempMohit\Data\VendorsAndProducts.xlsx">
             <ui:ReadCell.Result>
               <OutArgument x:TypeArguments="ui:GenericValue">[nextCell]</OutArgument>
             </ui:ReadCell.Result>
           </ui:ReadCell>
-          <ui:InterruptibleWhile DisplayName="While" sap:VirtualizedContainerService.HintSize="412,544" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+          <ui:InterruptibleWhile Condition="[Not (nextCell Is Nothing)]" DisplayName="While" sap:VirtualizedContainerService.HintSize="412,544" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
             <ui:InterruptibleWhile.Body>
               <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,379" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
@@ -168,16 +168,13 @@
                     </scg:List>
                   </ui:MultipleAssign.AssignOperations>
                 </ui:MultipleAssign>
-                <ui:ReadCell Cell="[&quot;A&quot;+currentCellIndex.ToString]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadCell_3" SheetName="OrderClientRef" WorkbookPath="TempMohit\Data\VendorsAndProducts.xlsx">
+                <ui:ReadCell Cell="[&quot;A&quot;+currentCellIndex.ToString]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadCell_3" SheetName="OrderReference" WorkbookPath="TempMohit\Data\VendorsAndProducts.xlsx">
                   <ui:ReadCell.Result>
                     <OutArgument x:TypeArguments="ui:GenericValue">[nextCell]</OutArgument>
                   </ui:ReadCell.Result>
                 </ui:ReadCell>
               </Sequence>
             </ui:InterruptibleWhile.Body>
-            <ui:InterruptibleWhile.Condition>
-              <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Not (nextCell Is Nothing)" />
-            </ui:InterruptibleWhile.Condition>
           </ui:InterruptibleWhile>
           <Assign sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
