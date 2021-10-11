@@ -71,7 +71,7 @@
         <OutArgument x:TypeArguments="x:Int32">[clientId]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:Int32">1</InArgument>
+        <InArgument x:TypeArguments="x:Int32">3</InArgument>
       </Assign.Value>
     </Assign>
   </Sequence>
