@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Welcome" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="605,1929" sap2010:WorkflowViewState.IdRef="Welcome_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Welcome" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1132,7560" sap2010:WorkflowViewState.IdRef="Welcome_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
       <x:String>System.Activities</x:String>
@@ -65,7 +65,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="FrontEnd" sap:VirtualizedContainerService.HintSize="615,1864" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="FrontEnd" sap:VirtualizedContainerService.HintSize="1142,7495" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="username" />
       <Variable x:TypeArguments="sd:DataTable" Name="ExcelData" />
@@ -79,17 +79,17 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="573,238" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label=" Please enter your name:" Title="Enter Name">
+    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="1100,238" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label=" Please enter your name:" Title="Enter Name">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[username]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="573,238" sap2010:WorkflowViewState.IdRef="InputDialog_21" IsPassword="False" Label="[&quot;Hello &quot; + userName + &quot;, please enter your email address:&quot;]" Title="Enter Email">
+    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="1100,238" sap2010:WorkflowViewState.IdRef="InputDialog_21" IsPassword="False" Label="[&quot;Hello &quot; + userName + &quot;, please enter your email address:&quot;]" Title="Enter Email">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[email]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="573,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1100,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -111,13 +111,13 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="573,1047" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="DataSpreadsheet\RoSADatasheet.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1100,6678" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="DataSpreadsheet\RoSADatasheet.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="539,938" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1066,6569" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dtVendors" />
               <Variable x:TypeArguments="sd:DataTable" Name="dtExpenses" />
@@ -129,22 +129,22 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelReadRange AddHeaders="True" DataTable="[ExcelData]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="497,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Clients">
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[ExcelData]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="1024,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Clients">
               <ui:ExcelReadRange.Range>
                 <InArgument x:TypeArguments="x:String">
                   <Literal x:TypeArguments="x:String" Value="" />
                 </InArgument>
               </ui:ExcelReadRange.Range>
             </ui:ExcelReadRange>
-            <ui:BuildDataTable DataTable="{x:Null}" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="497,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_13" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ClientName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;ClientEmail&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{strName,strEmail}]" DataTable="[ExcelData]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="497,22" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
-            <ui:ExcelWriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[ExcelData]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="497,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_4" SheetName="Clients" />
-            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="497,238" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="[&quot;Hello &quot; + userName + &quot;! Which store would you like to visit? 1 for Valentine Groceries, 2 for Damle Movies, and 3 for TechDevs.&quot;]" Title="Select Store">
+            <ui:BuildDataTable DataTable="{x:Null}" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1024,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_13" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ClientName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;ClientEmail&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{strName,strEmail}]" DataTable="[ExcelData]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="1024,22" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
+            <ui:ExcelWriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[ExcelData]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="1024,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_4" SheetName="Clients" />
+            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="1024,238" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="[&quot;Hello &quot; + userName + &quot;! Which store would you like to visit? 1 for Valentine Groceries, 2 for Damle Movies, and 3 for TechDevs.&quot;]" Title="Select Store">
               <ui:InputDialog.Result>
                 <OutArgument x:TypeArguments="x:Int32">[vendLocate]</OutArgument>
               </ui:InputDialog.Result>
             </ui:InputDialog>
-            <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[vendLocate]" sap:VirtualizedContainerService.HintSize="497,181" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[vendLocate]" sap:VirtualizedContainerService.HintSize="1024,5812" sap2010:WorkflowViewState.IdRef="Switch`1_1">
               <Sequence x:Key="1" sap:VirtualizedContainerService.HintSize="984,5585" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Int32" Name="found" />
@@ -153,6 +153,7 @@
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:ExcelReadRange AddHeaders="True" DataTable="[ExcelData]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="942,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_4" SheetName="Vendors">
@@ -241,7 +242,7 @@
                     </Sequence>
                   </If.Then>
                 </If>
-                <If Condition="[prodPurchase =&quot;Sliced Bacon (2% Discount)&quot;]" sap:VirtualizedContainerService.HintSize="942,1628" sap2010:WorkflowViewState.IdRef="If_24">
+                <If Condition="[prodPurchase =&quot;Turkey Bacon (2% Discount)&quot;]" sap:VirtualizedContainerService.HintSize="942,1628" sap2010:WorkflowViewState.IdRef="If_24">
                   <If.Then>
                     <Sequence sap:VirtualizedContainerService.HintSize="797,1481" sap2010:WorkflowViewState.IdRef="Sequence_31">
                       <Sequence.Variables>
@@ -472,7 +473,7 @@
                     </Sequence>
                   </If.Then>
                 </If>
-                <If Condition="[prodPurchase =&quot;Zelda BOTW (5% Discount)&quot;]" sap:VirtualizedContainerService.HintSize="942,1628" sap2010:WorkflowViewState.IdRef="If_28">
+                <If Condition="[prodPurchase =&quot;New Super Mario Bros Switch (5% Discount)&quot;]" sap:VirtualizedContainerService.HintSize="942,1628" sap2010:WorkflowViewState.IdRef="If_28">
                   <If.Then>
                     <Sequence sap:VirtualizedContainerService.HintSize="797,1481" sap2010:WorkflowViewState.IdRef="Sequence_35">
                       <Sequence.Variables>
@@ -634,7 +635,7 @@
                     <OutArgument x:TypeArguments="x:String">[prodPurchase]</OutArgument>
                   </ui:InputDialog.Result>
                 </ui:InputDialog>
-                <If Condition="[prodPurchase =&quot;Samsung S9000&quot;]" sap:VirtualizedContainerService.HintSize="942,1628" sap2010:WorkflowViewState.IdRef="If_16">
+                <If Condition="[prodPurchase =&quot;Apple Iphone11&quot;]" sap:VirtualizedContainerService.HintSize="942,1628" sap2010:WorkflowViewState.IdRef="If_16">
                   <If.Then>
                     <Sequence sap:VirtualizedContainerService.HintSize="797,1481" sap2010:WorkflowViewState.IdRef="Sequence_22">
                       <Sequence.Variables>
@@ -703,7 +704,7 @@
                     </Sequence>
                   </If.Then>
                 </If>
-                <If Condition="[prodPurchase =&quot;Tile Mate (10% Discount)&quot;]" sap:VirtualizedContainerService.HintSize="942,1628" sap2010:WorkflowViewState.IdRef="If_18">
+                <If Condition="[prodPurchase =&quot;Beats Headphones (10% Discount)&quot;]" sap:VirtualizedContainerService.HintSize="942,1628" sap2010:WorkflowViewState.IdRef="If_18">
                   <If.Then>
                     <Sequence sap:VirtualizedContainerService.HintSize="797,1481" sap2010:WorkflowViewState.IdRef="Sequence_25">
                       <Sequence.Variables>
@@ -772,7 +773,7 @@
                     </Sequence>
                   </If.Then>
                 </If>
-                <If Condition="[prodPurchase =&quot;Oculus Quest 2&quot;]" sap:VirtualizedContainerService.HintSize="942,1628" sap2010:WorkflowViewState.IdRef="If_20">
+                <If Condition="[prodPurchase =&quot;VR Goggles&quot;]" sap:VirtualizedContainerService.HintSize="942,1628" sap2010:WorkflowViewState.IdRef="If_20">
                   <If.Then>
                     <Sequence sap:VirtualizedContainerService.HintSize="797,1481" sap2010:WorkflowViewState.IdRef="Sequence_27">
                       <Sequence.Variables>
