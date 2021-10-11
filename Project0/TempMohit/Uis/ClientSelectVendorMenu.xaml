@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>693,2605</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>607,3005</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ClientSelectVendorMenu_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg1:List x:TypeArguments="x:String" Capacity="32">
@@ -67,7 +67,7 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </scg1:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ClientSelectVendorMenu" sap:VirtualizedContainerService.HintSize="617,2540" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ClientSelectVendorMenu" sap:VirtualizedContainerService.HintSize="617,2940" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="repeat" />
       <Variable x:TypeArguments="sd:DataTable" Name="vendorList" />
@@ -166,9 +166,9 @@
       </Assign.Value>
     </Assign>
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="575,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;log: Got VendorList from VendorsAndProducts.xlsx, and processed into the string menuOptions: &quot;+n+menuOptions]" />
-    <ui:InterruptibleWhile Condition="[repeat]" DisplayName="While" sap:VirtualizedContainerService.HintSize="575,848" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+    <ui:InterruptibleWhile Condition="[repeat]" DisplayName="While" sap:VirtualizedContainerService.HintSize="575,1248" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
       <ui:InterruptibleWhile.Body>
-        <Sequence DisplayName="Body _ loop: vendor selection" sap:VirtualizedContainerService.HintSize="539,683" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Body _ loop: vendor selection" sap:VirtualizedContainerService.HintSize="539,1083" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="userInput" />
           </Sequence.Variables>
@@ -183,7 +183,7 @@
             </ui:InputDialog.Result>
           </ui:InputDialog>
           <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="497,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;log: userInput = &quot;+userInput]" />
-          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[userInput]" sap:VirtualizedContainerService.HintSize="497,159" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[userInput]" sap:VirtualizedContainerService.HintSize="497,559" sap2010:WorkflowViewState.IdRef="Switch`1_4">
             <Switch.Default>
               <Sequence sap:VirtualizedContainerService.HintSize="376,356" sap2010:WorkflowViewState.IdRef="Sequence_10">
                 <sap:WorkflowViewStateService.ViewState>
@@ -199,7 +199,7 @@
                     <InArgument x:TypeArguments="scg:ISet(x:String)">[vendorSelection]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:InvokeCode ContinueOnError="{x:Null}" Code="menuReturn.Add(userInput)" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+                <ui:InvokeCode ContinueOnError="{x:Null}" Code="If(Not userInput Is Nothing) Then&#xD;&#xA;&#x9;menuReturn.Add(userInput)&#xD;&#xA;End If" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
                   <ui:InvokeCode.Arguments>
                     <InArgument x:TypeArguments="scg:ISet(x:String)" x:Key="menuReturn">[menuReturn]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="userInput">[userInput]</InArgument>
@@ -215,7 +215,7 @@
                 <InArgument x:TypeArguments="x:Boolean">False</InArgument>
               </Assign.Value>
             </Assign>
-            <Sequence x:Key="Any Vendor" sap:VirtualizedContainerService.HintSize="376,355" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence x:Key="Any Vendor" sap:VirtualizedContainerService.HintSize="376,356" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg1:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
