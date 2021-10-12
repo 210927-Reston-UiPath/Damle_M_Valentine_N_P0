@@ -3497,15 +3497,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mibax\\.nuget\\packages\\": {}
+    "C:\\Users\\nilesv\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Project0",
       "projectName": "Project0",
-      "projectPath": "C:\\Revature\\Project0\\Damle_M_Valentine_N_P0\\Project0\\.local",
-      "packagesPath": "C:\\Users\\mibax\\.nuget\\packages\\",
-      "outputPath": "C:\\Revature\\Project0\\Damle_M_Valentine_N_P0\\Project0\\.local"
+      "projectPath": "C:\\Users\\nilesv\\OneDrive\\Desktop\\Revature Assignments\\UiPathStudioProject0\\Damle_M_Valentine_N_P0\\Project0\\.local",
+      "packagesPath": "C:\\Users\\nilesv\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nilesv\\OneDrive\\Desktop\\Revature Assignments\\UiPathStudioProject0\\Damle_M_Valentine_N_P0\\Project0\\.local"
     },
     "frameworks": {
       "net461": {
